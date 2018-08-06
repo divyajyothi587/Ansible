@@ -1,7 +1,13 @@
 ---
-- hosts: all
+- hosts: Redhat
   tasks:
   - name: copy files.
     copy:
       src: /home/ansible/jaffa1.txt
       dest: /home/
+  - name: ping files
+    ping:
+  - name: install httpd
+    yum:
+    - name: httpd
+      state: present
