@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - name: copy files.
+    copy:
+      src: /home/ansible/jaffa?.txt
+      dest: /home/
+      
