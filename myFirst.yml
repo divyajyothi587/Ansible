@@ -1,5 +1,6 @@
 ---
 - hosts: Redhat
+  become: yes
   tasks:
   - name: copy files.
     copy:
@@ -9,5 +10,5 @@
     ping:
   - name: install httpd
     yum:
-    - name: httpd
+      name: httpd
       state: present
