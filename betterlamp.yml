@@ -39,13 +39,21 @@
     notify:
     - restart_httpd
     when: ansible_os_family == "Redhat"
+  - name: download webpage
+    get_url:
+      url: https://raw.githubusercontent.com/asquarezone/AnsibleZone/master/ClassRoomExamples/July2018/basics/info.php
+      dest: /var/www/ftml/info.php
+    notify:
+    - restart_apache2
+    - restart_httpd
   handlers:
   - name: restart_apache2
-    sercvice:
+    service:
       name: apache2
       enabled: yes
       state: restarted
     when: ansible_os_family == "Debian""
+  
   - name: restart_httpd
     service: 
       name: httpd
