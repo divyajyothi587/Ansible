@@ -58,5 +58,5 @@
     service: 
       name: httpd
       enabled: yes
-      state: retsrated
+      state: restrated
     when: ansible_os_family == "Redhat"
