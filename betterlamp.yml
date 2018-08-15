@@ -42,7 +42,7 @@
   - name: download webpage
     get_url:
       url: https://raw.githubusercontent.com/asquarezone/AnsibleZone/master/ClassRoomExamples/July2018/basics/info.php
-      dest: /var/www/ftml/info.php
+      dest: /var/www/html/info.php
     notify:
     - restart_apache2
     - restart_httpd
