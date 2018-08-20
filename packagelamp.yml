@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: install apache and httpd...
+    package:
+      name: "{{ pack_name }}"
+      state: present
+    notify:
+    - restart_server
+  - name: install php packages...
+    package:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ php_packages }}"
+  - name: copy info.php page
+    get_url:
+      url: https://raw.githubusercontent.com/asquarezone/AnsibleZone/master/ClassRoomExamples/July2018/basics/info.php
+      dest: /var/www/html/info.php
+    notify:
+    - restart_server
+  handlers:
+    - name: restart_server
+      service:
+        name: "{{ pack_name }}"
+        state: restarted
+      
+  
+
+      
