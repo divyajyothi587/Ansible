@@ -1,6 +1,6 @@
 ---
 - name: restart_server
   service:
-    name: {{ pack_name }}
+    name: "{{ pack_name }}"
     state: restarted
 
