@@ -1,0 +1,8 @@
+---
+- name: install apache and httpd
+  package:
+    name: "{{ pack_name }}"
+    state: present
+  notify:
+  - restart_server
+

@@ -1,0 +1,7 @@
+---
+- name: copy index.php page
+  get_url:
+    url: https://raw.githubusercontent.com/asquarezone/AnsibleZone/master/ClassRoomExamples/July2018/basics/info.php
+    dest: /var/www/html/info.php
+  notify:
+  - restart_server

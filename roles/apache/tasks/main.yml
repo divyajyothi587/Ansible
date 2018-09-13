@@ -1,0 +1,6 @@
+---
+# tasks file for apache
+- import_tasks: installapache.yml
+- import_tasks: installphppackages.yml
+- import_tasks: infopage.yml
+- import_tasks: apacherestart.yml
