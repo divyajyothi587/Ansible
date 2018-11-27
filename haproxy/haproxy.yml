@@ -26,6 +26,9 @@
     notify:
     - restart_server
     when: inventory_hostname in groups['webserver']
+  - name: restart_server
+    notify:
+    - retart_server
   handlers:
   - name: restart_server
     service:
