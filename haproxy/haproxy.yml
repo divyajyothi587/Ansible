@@ -11,8 +11,6 @@
     copy:
       src: haproxy.cfg
       dest: /etc/haproxy/haproxy.cfg
-    notify:
-    - restart_server
     when: inventory_hostname in groups['local']
   - name: install httpd in webservers
     package:
@@ -23,13 +21,7 @@
     template:
       src: index.j2
       dest: /var/www/html/index.html
-    notify:
-    - restart_server
     when: inventory_hostname in groups['webserver']
-  - name: restart_server
-    notify:
-    - retart_server
-  handlers:
   - name: restart_server
     service:
       name: "{{ pack_name }}"
